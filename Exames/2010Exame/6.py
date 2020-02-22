@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jan 10 11:08:00 2020
+
+@author: fmna
+"""
+
+
+"""
+A*dx=db-dA*x
+
+db-daA*x =    
+[0.1,0.1,0.1]-[[0.1,0.1,0.1],[0.1,0.1,0.1],[0.1,0.1,0.1]]*[0.552949,-0.15347,-0.10655]
+= [0.07071,0.07071,0.07071]
+"""
+
+m=[[18,-1,1,0.07071],[3,-5,4,0.07071],[6,8,29,0.07071]]
+dimV=len(m)
+
+def sol(m):
+    for diag in range(dimV):
+        pivot = m[diag][diag]
+        for col in range (dimV+1):
+            m[diag][col]/=pivot
+        for lin in range(diag+1, dimV):
+            pivot2 = m[lin][diag]
+            for col in range(diag, dimV+1):
+                m[lin][col] -= m[diag][col] * pivot2
+                
+    for diag in range(dimV-1, -1, -1):
+        for lin in range(diag-1, -1, -1):
+            factor=m[lin][diag]
+            for col in range(dimV, diag-1, -1):
+                m[lin][col]-=m[diag][col]*factor
+
+    return m
+
+print(sol(m))
