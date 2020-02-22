@@ -6,7 +6,7 @@ Created on Wed Dec 11 18:14:35 2019
 @author: exame
 """
 
-#Equações de cada variável
+#Equações de cada variavel
 def fx(cx,x,cy,y,cz,z,cw,w,b):
     return (b-(cy*y+cz*z+cw*w))/cx
 
