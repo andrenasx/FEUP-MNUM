@@ -6,6 +6,7 @@ Created on Wed Dec 11 18:10:09 2019
 @author: exame
 """
 
+
 def W(t):
     if t==0:
         return 0.0
